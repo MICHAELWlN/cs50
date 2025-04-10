@@ -16,4 +16,44 @@
  -Don't get hit by the meteor
  
  ## Live Scratch Game
- https://scratch.mit.edu/projects/1159248382
+ https://scratch.mit.edu/projects/1159248382 
+
+ # Week 1: Hello, World & Mario C Assignments
+This is my first C program I wrote for cs50. The goal of this assignment was to get familiar with writing, compiling, and running a program in C.
+
+# What it does: This program prints the message: hello, world
+
+## What I learned
+- How to write a basic C program
+- How to use #include <stdio.h> for input/output
+- How to compile code using 'make'
+- How to execute a compiled C program
+
+## How to Run It:
+1. Open terminal
+2. Go to hello.c folder
+3. Compile code by typing "make hello"
+4. Run the program using ./hello
+
+## File:
+- 'hello.c' : Source code for Hello World program
+
+## 2. Mario (Less)
+
+## What It Does:
+This program asks the user to input a height (1-8) and prints a right aligned pyramid just like one on a mario game.
+
+## What I Learned:
+- How to prompt a user for input using 'get_int()'
+- How to use 'do...while' loops
+= How to use 'for loops' nested in each other 
+
+## How to Run:
+1. Open Terminal
+2. Go to 'mario-less' folder
+3. Compile the code by typing 'make mario'
+4. Run the program with './mario'
+5. Enter a height between 1 and 8
+
+## File:
+- 'mario.c' - Source code for Marioless program
