@@ -57,3 +57,23 @@ This program asks the user to input a height (1-8) and prints a right aligned py
 
 ## File:
 - 'mario.c' - Source code for Marioless program
+
+## Mario (More)
+
+## What It Does:
+This program asks the user to input a height between 1-9 and prints two side by side ppyramids with spaces separating them 
+## What I learned:
+- How to use 'get_int()' for user input
+- How to use 'do...while' loops to validate input
+- How to use nested 'for' loops to build each row of the pyramid
+- How to print characters and spaces in specific patterns
+
+## How to Run:
+1. Open Terminal
+2. Go to 'mario-more' folder
+3. Compile code by typing "make mario"
+4. Run program with ./mario
+5. When promoted, enter a height between 1-8
+
+## File:
+- 'mario.c' - Source code for MarioMore Program
