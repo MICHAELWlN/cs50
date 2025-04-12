@@ -82,3 +82,37 @@ int main(void)
         printf("\n");
     }
 }
+
+// Code for Cash Program
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    // Declare a variable to store the amount of change
+    int cents;
+
+    // Keep asking the user for a positive amount of change until they give it
+    do
+    {
+        cents = get_int("Change owed: ");
+    }
+    while (cents < 0);
+
+    // Count how many coins are used
+    int coins = 0;
+
+    // Use as many quarters (25 cents) as possible
+    coins += cents / 25;
+    cents %= 25;
+
+    // Use as many dimes (10 cents) as possible
+    coins += cents / 10;
+    cents %= 5;
+
+    // Use the rest as pennies (1 cent)
+    coins += cents;
+
+    // Print the total number of coins
+    printf("%i\n", coins);
+}
