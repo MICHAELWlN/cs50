@@ -116,3 +116,108 @@ int main(void)
     // Print the total number of coins
     printf("%i\n", coins);
 }
+
+// Code for Credit Program
+
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    // Prompt user for a card number
+    long card_number = get_long("Number: ");
+
+    // We'll calculate Luhn’s checksum here
+    int sum = 0;
+
+    // We'll also track how many digits the card has
+    int digit_count = 0;
+
+    // We'll use a temporary variable so we don’t lose the original number
+    long temp = card_number;
+
+    // 1) Luhn's Algorithm
+    //    Start from the rightmost digit (position = 1).
+    //    Double every 2nd digit, then add the individual digits of the result.
+
+    while (temp > 0)
+    {
+        int digit = temp % 10;        // Extract the rightmost digit
+        digit_count++;                // We're seeing one more digit
+        int position = digit_count;   // For readability
+
+        // If position is 2, 4, 6, ... (i.e. every 2nd digit from the right)
+        // we double the digit and add its sum of digits
+        if (position % 2 == 0)
+        {
+            digit *= 2;
+            // If, say, digit = 14, then (1 + 4) = 5
+            sum += (digit % 10) + (digit / 10);
+        }
+        else
+        {
+            // Just add the digit as is
+            sum += digit;
+        }
+
+        temp /= 10;   // Chop off the rightmost digit
+    }
+
+    // 2) Check if the total sum is valid (mod 10 == 0)
+
+    if (sum % 10 == 0)
+    {
+        // If valid, figure out the card’s length and first digits
+        int length = digit_count;
+
+        // Find the leading 1 or 2 digits
+        long start = card_number;
+        while (start >= 100)
+        {
+            start /= 10;
+        }
+
+        // 3) Identify the card type by:
+        //    - length (13, 15, or 16)
+        //    - first 1-2 digits
+        //
+        // American Express: 34 or 37, length 15
+        // MasterCard:      51–55, length 16
+        // Visa:            first digit 4, length 13 or 16
+
+        if ((start == 34 || start == 37) && length == 15)
+        {
+            printf("AMEX\n");
+        }
+        else if (start >= 51 && start <= 55 && length == 16)
+        {
+            printf("MASTERCARD\n");
+        }
+        else
+        {
+            // If you only want the first digit, reduce `start` further:
+            //    while (start >= 10) { start /= 10; }
+            // then check if (start == 4).
+            // But this works if we do:
+            int first_digit = start / 10;  // If start = 41, dividing by 10 => 4
+            // If your code leaves `start` as a single digit, then just do `start == 4`.
+
+            if ((first_digit == 4 || start == 4) && (length == 13 || length == 16))
+            {
+                printf("VISA\n");
+            }
+            else
+            {
+                // Even if Luhn’s passes, if it doesn’t match any known card pattern:
+                printf("INVALID\n");
+            }
+        }
+    }
+    else
+    {
+        // Sum fails the check digit test => invalid
+        printf("INVALID\n");
+    }
+    return 0;
+}
+
