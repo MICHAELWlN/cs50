@@ -19,7 +19,7 @@
  https://scratch.mit.edu/projects/1159248382 
 
  # Week 1: Hello, World & Mario C Assignments
-This is my first C program I wrote for cs50. The goal of this assignment was to get familiar with writing, compiling, and running a program in C.
+These are my first C programs I wrote for cs50. The goal of these assignments were to get familiar with writing, compiling, and running a program in C.
 
 # What it does: This program prints the message: hello, world
 
