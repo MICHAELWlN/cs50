@@ -62,6 +62,7 @@ This program asks the user to input a height (1-8) and prints a right aligned py
 
 ## What It Does:
 This program asks the user to input a height between 1-9 and prints two side by side ppyramids with spaces separating them 
+
 ## What I learned:
 - How to use 'get_int()' for user input
 - How to use 'do...while' loops to validate input
@@ -77,3 +78,22 @@ This program asks the user to input a height between 1-9 and prints two side by 
 
 ## File:
 - 'mario.c' - Source code for MarioMore Program
+
+## Credit
+
+## What It Does:
+This program asks the user for a card number and checks if the card number is valid using Luhn's Algorithm, if it's valid then the card is identified as either Amex, Mastercard, or Visa based on the number's length and starting digits. If no conditions are met, then it prints invalid.
+
+## What I learned:
+
+- How to code Luhn's Algorithm
+- Extraction of digits using % and /
+- Count digits and track position while looping
+- How to use loops and operations to manipulate numbers
+
+## How to Run:
+1. Open Terminal
+2. Go to credit folder
+3. Compile code by typing "make credit"
+4. Run programm with ./credit
+5. When prompted, enter a card number to validate
