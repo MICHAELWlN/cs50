@@ -117,3 +117,38 @@ This program simulates a two-player Scrabble-like word game. Each player inputs 
 3. Compile code by typing "make scrabble"
 4. Run program with "./scrabble"
 5. When prompted, enter a word for player 1 and player 2
+
+## Readability
+
+## What It Does:
+This program analyzes a block of text and calculates its reading level using the Coleman-Liau index. It counts the number of letters, words, and sentences in the input, then uses a formula to estimate the grade level required to understand the text.
+
+## What I learned 
+- Loops and Conditionals to count characters, words, and sentences
+- The use of isalpha, isspace, and punctuation checks for classification
+- The application of mathematical formulas using float division and rounding
+
+## How to Run:
+1. Open Terminal
+2. Go to readability folder
+3. Compile code by typing make readability
+4. Run program with ./readability
+5. When prompted enter a block of text to analyze
+
+## Caesar
+
+## What It Does:
+This program encrypts messages using the Caesar cipher - a substitution cipher where each letter in plaintext is shifted by a user-provided key. The user inputs a key as a command line argument, then types a message. The program rotates each alphabetical character by that number of positions in the alphabet, preserving the case and leaving non-alphabetical letters unchanged.
+
+## What I learned
+- Command Line Arguments
+- Validation of input using custom functions and isdigit
+- Conversion of a string input to an integer using atoi
+- Rotation of characters using ASCII arithmetic and modulo
+
+## How to Run:
+1. Open Terminal
+2. Go to caesar folder
+3. Compile code by typing make caesar
+4. Run program with ./caesar [key]
+5. When prompted, enter a message to encrypt
