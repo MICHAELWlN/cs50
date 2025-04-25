@@ -73,4 +73,198 @@ int compute_score(string word)
     return sum;
 }
 
+// Code for Readability Assignment
+
+#include <ctype.h>
+#include <cs50.h>
+#include <math.h>
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+
+int count_letters(string text);
+int count_words(string text);
+int count_sentences(string text);
+
+int main(void)
+{
+    // Prompt user for text
+
+    string text = get_string("Text: ");
+
+    // Count number of leters, words, and sentences in the text
+
+    int letters = count_letters(text);
+    int words = count_words(text);
+    int sentences = count_sentences(text);
+
+    // Use Coleman-Liau index to compute reading level
+    float L = ((float) letters / words) * 100;
+    float S = ((float) sentences / words) * 100;
+    float index = round(0.0588 * L - 0.296 * S - 15.8);
+
+    if (index > 16)
+    {
+        printf("Grade 16+\n");
+    }
+    else if (index < 1)
+    {
+        printf("Before Grade 1\n");
+    }
+    else
+    {
+        printf("Grade %i\n", (int) index);
+    }
+
+
+}
+
+int count_letters(string text)
+{
+    // Return the number of letters
+
+    int count = 0;
+    for (int i = 0; i < strlen(text); i++)
+    {
+        if (isalpha(text[i]))
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
+int count_words(string text)
+{
+    // Return the number of words in text
+
+   int spaces = 0;
+   for (int i = 0; i < strlen(text); i++)
+   {
+        if (isspace(text[i]))
+        {
+            spaces++;
+        }
+   }
+   int words = spaces + 1;
+   return words;
+}
+
+int count_sentences(string text)
+{
+    // Return the number of sentences in text
+
+    int punctuation_marks = 0;
+    for (int i = 0; i < strlen(text); i++)
+    {
+        if (text[i] == '.' || text[i] == '?' || text[i] == '!')
+        {
+            punctuation_marks++;
+        }
+    }
+    return punctuation_marks;
+
+}
+
+// Code for Caesar Assignment
+
+#include <cs50.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
+
+bool only_digits(string s);
+char rotate(char c, int key);
+
+int main(int argc, string argv[])
+{
+    // Check command-line arguments
+
+    if (argc != 2)
+    {
+        printf("Usage: ./caesar key\n");
+
+        return 1;
+    }
+
+    // Validate that every character in argv[1] is a digit
+
+    if (!only_digits(argv[1]))
+    {
+        printf("Usage: ./caesar key\n");
+
+        return 1;
+    }
+
+    // Convert argv[1] from a 'string' to an 'int'
+
+    int key = atoi(argv[1]);
+
+    // Prompt the user for plaintext
+
+    string text = get_string("plaintext: ");
+
+     // For each character in the plaintext;
+
+        // Rotate the character if it's a letter
+
+        printf("Ciphertext: ");
+
+        for (int i = 0; i < strlen(text); i++)
+        {
+            // Output result
+
+            char rotated_char = rotate(text[i], key);
+            printf("%c", rotated_char);
+
+        }
+        printf("\n");
+
+
+    // End the program
+
+    return 0;
+}
+
+bool only_digits(string s)
+{
+    for (int i = 0; i < strlen(s); i++)
+    {
+        if (!isdigit(s[i]))
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+char rotate(char c, int key)
+{
+
+    // Logic for shifting character
+
+
+        if (!isalpha(c))
+        {
+            return c;
+        }
+
+        if (isupper(c))
+        {
+            return ((c - 'A' + key) % 26) + 'A';
+        }
+
+        if(islower(c))
+        {
+            return ((c - 'a' + key) % 26) + 'a';
+        }
+
+        return c;
+
+}
+
+
+
+
 
