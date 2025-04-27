@@ -152,3 +152,22 @@ This program encrypts messages using the Caesar cipher - a substitution cipher w
 3. Compile code by typing make caesar
 4. Run program with ./caesar [key]
 5. When prompted, enter a message to encrypt
+
+## Substitution
+
+## What It Does:
+This program encrypts messages using the substitution cipher - a cipher where each letter in plaintext is replaced with a corresponding letter based on a 26 letter key the user provided. The program preserves the orginal casing of each letter and leaves non-alphabetic letters unchanged
+
+## What I Learned
+- Command Line Arguments
+- Checking for duplicate characters
+- ASCII arithmetic to find the alphabetical index of characters
+- Using tolower() and toupper() to preserve case during substitution
+- Manipulating string character by character
+
+## How to Run:
+1. Open Terminal
+2. Go to substitution folder
+3. Compile code by typing make substitution
+4. Run program with ./substitution [key]
+5. When prompted, enter a message to encrypt
